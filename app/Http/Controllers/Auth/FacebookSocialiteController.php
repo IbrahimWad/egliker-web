@@ -43,7 +43,10 @@ class FacebookSocialiteController extends Controller
                 'user' => $user
             ]);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Unable to login with Facebook.'], 500);
+            return response()->json([
+                'error' => 'Unable to login with Facebook.',
+                'message' => $e->getMessage()
+        ], 500);
         }
     }
 
